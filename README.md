@@ -1,4 +1,4 @@
-This repository stores the codes of SUMA: A Machine-Learning Based Lighweight Application for scRNA-Seq Clustering
+This repository stores the codes of SUMA: A Machine-Learning Based Lightweight Application for scRNA-Seq Clustering
 
 
 Preprocess and training folders involves R and Python script. R scripts are used to download and pre-process publicly available scRNA-Seq datasets.
