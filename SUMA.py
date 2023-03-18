@@ -12,7 +12,7 @@ import argparse
 import warnings
 warnings.filterwarnings("ignore")
 
-parser = argparse.ArgumentParser(description='SUMA: A Lightweigt model of Number of Neighbour Selection')
+parser = argparse.ArgumentParser(description='SUMA: A Lightweight model of Number of Neighbour Selection')
 parser.add_argument('-c','--cells', help='Number of Cells', required=True)
 parser.add_argument('-p','--pc', help='Number of PCs', required=True)
 parser.add_argument('-e','--exp_type', help='Experiment Type (1: Droplet, 0: Spike (ERCC)', required=True)
@@ -20,7 +20,7 @@ parser.add_argument('-g','--hvgs', help='Number of Highly Variant Genes used for
 args = parser.parse_args()
 
 
-rf_model = pickle.load(open('rf_model_65.sav', 'rb'))
+rf_model = pickle.load(open('SUMA.sav', 'rb'))
 
 number_of_cells = args.cells
 number_of_pc = args.pc
@@ -43,12 +43,12 @@ df.rename(columns = {'Exp_TypeDroplet' : 'Exp_Type.Droplet'} , inplace=True)
 
 rf_prediction = rf_model.predict(df)
 
-df["RF_Pred"] = rf_prediction
+df["SUMA_Pred"] = rf_prediction
 
-df = df.sort_values(by = ["RF_Pred"] , ascending = False)
+df = df.sort_values(by = ["SUMA_Pred"] , ascending = False)
 
-df["Above_Moderate"] = df["RF_Pred"] > 0.2226
-df["Above_Good"] = df["RF_Pred"] > 0.8605
+df["Above_Moderate"] = df["SUMA_Pred"] > 0.2226
+df["Above_Good"] = df["SUMA_Pred"] > 0.8605
 algorithm_results = df[['Algorithm.Leiden', 'Algorithm.Louvain' , 'Algorithm.Walktrap']]
 
 df = df.drop(["Exp_Type.Droplet",
