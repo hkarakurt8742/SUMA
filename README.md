@@ -10,7 +10,7 @@ To run the SUMA, just download main file and models from models folder.
 
 
 ```bash
-python SUMA.py -c "number of cells" -p "Number of PCs" -e "Experiment Type" -g "Number of Highly Variant Genes"
+python SUMA.py [-h] -c "number_of_cells" -p "number_of_pcs" -e "experiment_type" -g "number_of_highly_variant_genes" -v "explained_variance_percentage"
 ```
 
 App will directly print the output to your terminal. It will take about 2 seconds.
